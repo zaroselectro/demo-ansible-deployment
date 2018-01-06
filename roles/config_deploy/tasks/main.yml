@@ -1,5 +1,5 @@
 ---
-- include_vars: "conf/{{ deployment_system }}/hashed-props.yml"
+- include_vars: "conf/{{ deployment_system }}/props-hashed.yml"
 
 - name: create app-conf dir
   file:
