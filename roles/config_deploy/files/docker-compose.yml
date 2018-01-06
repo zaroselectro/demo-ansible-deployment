@@ -1,0 +1,16 @@
+version: '2'
+services:
+  chef:
+    image: "artifactory.dm-drogeriemarkt.com:9092/zoe/chef:{{ docker_image_tag }}"
+    restart: always
+    ports:
+     - "8080:8080"
+    volumes:
+     - /srv/conf/app:/srv/conf
+networks:
+  default:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.23.126.0/25

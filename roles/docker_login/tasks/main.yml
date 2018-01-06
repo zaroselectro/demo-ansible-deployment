@@ -1,0 +1,3 @@
+---
+- name: login to registry
+  shell: "docker login -p {{ artifactory_pw }} -u docker-registry artifactory.dm-drogeriemarkt.com:9092"

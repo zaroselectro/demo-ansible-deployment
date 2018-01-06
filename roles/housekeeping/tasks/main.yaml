@@ -1,0 +1,12 @@
+- name: copy docker-cleanup script
+  tags:
+    - copy_dockercleanup
+  ignore_errors: yes
+  template:
+    src: "roles/housekeeping/files/{{ item }}"
+    dest: "/etc/cron.daily/{{ item }}"
+    owner: root
+    group: root
+    mode: 0755
+  with_items:
+    - docker-cleanup

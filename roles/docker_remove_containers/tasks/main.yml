@@ -1,0 +1,6 @@
+---
+- name: stop docker container
+  shell: "docker-compose -f /srv/docker/docker-compose.yml stop"
+
+- name: remove container
+  shell: "docker-compose -f /srv/docker/docker-compose.yml rm -f"

@@ -1,0 +1,6 @@
+---
+- name: pull updates to local image
+  shell: "docker-compose -f /srv/docker/docker-compose.yml pull"
+
+- name: deploy docker container
+  shell: "docker-compose --file /srv/docker/docker-compose.yml up -d"

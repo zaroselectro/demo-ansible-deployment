@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# prune system
+docker system prune -a -f

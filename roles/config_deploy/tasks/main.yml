@@ -1,0 +1,38 @@
+---
+- include_vars: "conf/{{ deployment_system }}/passwords.yml"
+
+- name: create app-conf dir
+  file:
+    path: /srv/conf/app
+    state: directory
+    mode: 0777
+
+- name: create app-conf dir
+  file:
+    path: /srv/docker
+    state: directory
+    mode: 0755
+
+- name: copy app config
+  tags:
+    - copy_app_config
+  ignore_errors: yes
+  template:
+    src: "conf/{{ deployment_system }}/{{ item }}"
+    dest: "/srv/conf/app/{{ item }}"
+    owner: root
+    group: root
+  with_items:
+    - application.properties
+
+- name: copy docker-compose
+  tags:
+    - copy_docker-compose_config
+  ignore_errors: yes
+  template:
+    src: "roles/config_deploy/files/{{ item }}"
+    dest: "/srv/docker/{{ item }}"
+    owner: root
+    group: root
+  with_items:
+    - docker-compose.yml
