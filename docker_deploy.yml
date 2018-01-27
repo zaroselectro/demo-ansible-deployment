@@ -8,7 +8,6 @@
      deployment_system: "{{ lookup('env','deployment_system') }}"
   roles:
     - config_deploy
-    - housekeeping
     - docker_remove_containers
     - docker_login
     - docker_service
