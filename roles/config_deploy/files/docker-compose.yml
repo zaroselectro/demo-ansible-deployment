@@ -1,7 +1,7 @@
 version: '2'
 services:
   demo:
-    image: "zaroselectro/demo-mocroservice:{{ docker_image_tag }}"
+    image: "divaethm/demo-microservice:{{ docker_image_tag }}"
     restart: always
     ports:
      - "8080:8080"
